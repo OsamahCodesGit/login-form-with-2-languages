@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form Animation CSS | Coding Vibess</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    </style>
+  </head>
+
+  <body>
+    <div class="glowing-light"></div>
+    <div class="language-switcher">
+      <button class="language-btn" onclick="changeLanguage('en')">EN</button>
+      <button class="language-btn" onclick="changeLanguage('ar')">AR</button>
+    </div>
+    <div class="login-box">
+      <form action="#">
+        <input type="checkbox" class="input-check" id="input-check" />
+        <label for="input-check" class="toggle">
+          <span class="text off">off</span>
+          <span class="text on">on</span>
+        </label>
+        <div class="light"></div>
+
+        <h2 id="login-title">Login</h2>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="mail"></ion-icon>
+          </span>
+          <input type="email" required id="email-input" />
+          <label id="email-label">Email</label>
+          <div class="input-line"></div>
+        </div>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="lock-closed"></ion-icon>
+          </span>
+          <input type="password" required id="password-input" />
+          <label id="password-label">Password</label>
+          <div class="input-line"></div>
+        </div>
+        <div class="remember-forgot">
+          <label id="remember-label"><input type="checkbox" /> Remember me</label>
+          <a href="#" id="forgot-link">Forgot Password?</a>
+        </div>
+        <button type="submit" id="submit-btn">Login</button>
+        <div class="register-link">
+          <p id="register-text">Don't have an account? <a href="#" id="register-link">Register</a></p>
+        </div>
+      </form>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      // ترجمات للغتين
+      const translations = {
+        en: {
+          title: "Login",
+          email: "Email",
+          password: "Password",
+          remember: "Remember me",
+          forgot: "Forgot Password?",
+          submit: "Login",
+          registerText: "Don't have an account?",
+          registerLink: "Register"
+        },
+        ar: {
+            title: "تسجيل الدخول",
+            email: "البريد الإلكتروني",
+            password: "كلمة المرور",
+            remember: "تذكرني",
+            forgot: "نسيت كلمة المرور؟",
+            submit: "تسجيل الدخول",
+            registerText: "ليس لديك حساب؟",
+            registerLink: "سجل الآن"
+        }
+};
+
+      // تغيير اللغة
+function changeLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+        // تحديث النصوص
+        document.getElementById('login-title').textContent = translations[lang].title;
+        document.getElementById('email-label').textContent = translations[lang].email;
+        document.getElementById('password-label').textContent = translations[lang].password;
+        document.getElementById('remember-label').innerHTML = `<input type="checkbox" /> ${translations[lang].remember}`;
+        document.getElementById('forgot-link').textContent = translations[lang].forgot;
+        document.getElementById('submit-btn').textContent = translations[lang].submit;
+        document.getElementById('register-text').innerHTML = `${translations[lang].registerText} <a href="#" id="register-link">${translations[lang].registerLink}</a>`;
+}
+
+      // تعيين اللغة الافتراضية
+window.onload = function() {
+        changeLanguage('en');
+};
+    </script>
+</body>
+</html>
