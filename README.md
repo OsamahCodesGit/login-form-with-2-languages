@@ -1,2 +1,8 @@
-# login-form-with-2-languages
-# Login Form Project  An animated login form with multi-language support (English/Arabic).
+# Login Form Project
+
+An animated login form with multi-language support (English/Arabic).
+
+## Features
+- Toggle switch animation
+- Responsive design
+- Language switching
